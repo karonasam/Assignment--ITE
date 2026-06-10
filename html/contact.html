@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Angkor Wat</title>
+  <meta name="description" content="Get in touch with the Angkor Wat visitor services team for bookings, guided tours, press enquiries and more." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="assets/icons/favicon.ico" />
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .contact-info-item {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(200,169,122,0.12);
+    }
+
+    .contact-info-item:last-child { border-bottom: none; }
+
+    .contact-icon {
+      width: 44px; height: 44px;
+      background: rgba(212,168,83,0.1);
+      border: 1px solid rgba(212,168,83,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .contact-info-label {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-info-value {
+      font-size: 0.95rem;
+      color: var(--parchment-dk);
+      line-height: 1.6;
+    }
+
+    .success-msg {
+      display: none;
+      background: rgba(74,92,58,0.2);
+      border: 1px solid rgba(74,92,58,0.5);
+      padding: 1.5rem 2rem;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: #a8c49a;
+      letter-spacing: 0.05em;
+    }
+
+    .success-msg.visible { display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">Angkor Wat<span>Kingdom of Cambodia</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="architecture.html">Architecture</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="visit.html">Plan Your Visit</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero" style="height: 48vh;">
+    <div class="page-hero-img" style="background: linear-gradient(160deg, rgba(20,15,8,0.6) 0%, rgba(20,15,8,0.94) 100%), url('assets/images/angkor3.jpg') center/cover no-repeat;"></div>
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-content">
+      <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Contact</div>
+      <span class="section-label">We're Here to Help</span>
+      <h1 class="display-title" style="font-size: clamp(2.5rem, 6vw, 5.5rem);">Contact<br>Us</h1>
+    </div>
+  </div>
+
+  <!-- MAIN CONTACT -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- INFO SIDE -->
+        <div class="reveal-left">
+          <span class="section-label">Visitor Services</span>
+          <h2 class="section-title" style="margin-bottom: 2.5rem;">Get In Touch</h2>
+
+          <div class="contact-info-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-info-label">Address</div>
+              <div class="contact-info-value">Angkor Wat Temple Complex<br>Krong Siem Reap, Siem Reap Province<br>Kingdom of Cambodia</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-info-label">Phone</div>
+              <div class="contact-info-value">+855 63 760 036<br><span style="font-size: 0.82rem; color: var(--sandstone);">Mon–Sat, 8:00 AM – 5:00 PM ICT</span></div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon">✉</div>
+            <div>
+              <div class="contact-info-label">Email</div>
+              <div class="contact-info-value">info@angkorwat.org<br>bookings@angkorwat.org<br>press@angkorwat.org</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon">⏰</div>
+            <div>
+              <div class="contact-info-label">Temple Hours</div>
+              <div class="contact-info-value">Daily 5:00 AM – 6:00 PM<br><span style="font-size: 0.82rem; color: var(--sandstone);">Sunrise access from 5:00 AM</span></div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon">🌐</div>
+            <div>
+              <div class="contact-info-label">Social Media</div>
+              <div class="contact-info-value">
+                <div style="display: flex; gap: 1rem; margin-top: 0.25rem;">
+                  <a href="#" style="font-size: 0.8rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; transition: opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Facebook</a>
+                  <a href="#" style="font-size: 0.8rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; transition: opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Instagram</a>
+                  <a href="#" style="font-size: 0.8rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; transition: opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Twitter/X</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FORM SIDE -->
+        <div class="reveal">
+          <div style="background: var(--stone-mid); padding: 3.5rem; border: 1px solid rgba(200,169,122,0.12); position: relative;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, var(--gold), var(--sandstone-dk));"></div>
+            <span class="section-label" style="margin-bottom: 0.75rem;">Enquiry Form</span>
+            <h3 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--sandstone-lt); margin-bottom: 2.5rem; letter-spacing: 0.06em;">Send a Message</h3>
+
+            <div id="contactForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="firstName">First Name</label>
+                  <input class="form-input" type="text" id="firstName" placeholder="Suryavarman" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="lastName">Last Name</label>
+                  <input class="form-input" type="text" id="lastName" placeholder="II" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="email">Email Address</label>
+                <input class="form-input" type="email" id="email" placeholder="you@example.com" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="phone">Phone Number (Optional)</label>
+                <input class="form-input" type="tel" id="phone" placeholder="+1 000 000 0000" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="subject">Subject</label>
+                <select class="form-select" id="subject">
+                  <option value="" disabled selected>Select a topic…</option>
+                  <option value="booking">Ticket Booking</option>
+                  <option value="guided-tour">Guided Tour Enquiry</option>
+                  <option value="group">Group / School Visit</option>
+                  <option value="press">Press &amp; Media</option>
+                  <option value="research">Academic &amp; Research Access</option>
+                  <option value="accessibility">Accessibility Requirements</option>
+                  <option value="other">Other Enquiry</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="visitDate">Planned Visit Date (Optional)</label>
+                <input class="form-input" type="date" id="visitDate" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message">Your Message</label>
+                <textarea class="form-textarea" id="message" placeholder="Tell us how we can help you…"></textarea>
+              </div>
+
+              <button type="button" class="btn btn-filled" style="width: 100%; text-align: center;" onclick="submitForm()">
+                Send Message
+              </button>
+
+              <div class="success-msg" id="successMsg">
+                ✓ &nbsp; Your message has been sent. Our visitor services team will respond within 1–2 business days.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section style="padding-bottom: 6rem;">
+    <div class="container">
+      <div class="reveal">
+        <iframe
+          class="map-embed"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15652.089869898736!2d103.8443!3d13.4125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3110169a8e3b17af%3A0x5a2c0e82f6a14!2sAngkor%20Wat!5e0!3m2!1sen!2skh!4v1234567890"
+          allowfullscreen=""
+          loading="lazy"
+          title="Angkor Wat Location">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">Angkor Wat</div>
+          <div class="footer-brand-sub">Siem Reap · Cambodia</div>
+          <p class="footer-desc">The world's largest religious monument, a timeless testament to the genius of the Khmer Empire.</p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="architecture.html">Architecture</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Visit</h4>
+          <ul class="footer-links">
+            <li><a href="visit.html">Plan Your Visit</a></li>
+            <li><a href="visit.html#tickets">Tickets & Passes</a></li>
+            <li><a href="visit.html#hours">Opening Hours</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item"><strong>Address</strong><span>Krong Siem Reap, Cambodia</span></div>
+          <div class="footer-contact-item"><strong>Phone</strong><span>+855 63 760 036</span></div>
+          <div class="footer-contact-item"><strong>Email</strong><span>info@angkorwat.org</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Angkor Wat Heritage Site. All rights reserved.</span>
+        <span>A UNESCO World Heritage Site since 1992</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+    document.getElementById('navToggle').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal, .reveal-left').forEach(el => observer.observe(el));
+
+    function submitForm() {
+      const name = document.getElementById('firstName').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      if (!name || !email || !message) {
+        alert('Please fill in your name, email, and message before sending.');
+        return;
+      }
+      document.getElementById('successMsg').classList.add('visible');
+      document.getElementById('firstName').value = '';
+      document.getElementById('lastName').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('phone').value = '';
+      document.getElementById('message').value = '';
+      document.getElementById('subject').selectedIndex = 0;
+    }
+  </script>
+</body>
+</html>

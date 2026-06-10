@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery — Angkor Wat</title>
+  <meta name="description" content="Explore a curated photo gallery of Angkor Wat — from sunrise reflections to intricate stone carvings." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="assets/icons/favicon.ico" />
+  <style>
+    .gallery-filters {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .filter-btn {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.5rem;
+      border: 1px solid rgba(200,169,122,0.25);
+      color: var(--sandstone);
+      background: transparent;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(212,168,83,0.08);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+    }
+
+    .gallery-cell {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--stone-lt);
+    }
+
+    .gallery-cell.wide { grid-column: span 2; }
+    .gallery-cell.tall { grid-row: span 2; }
+
+    .gallery-cell img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s ease;
+      min-height: 280px;
+    }
+
+    .gallery-cell:hover img { transform: scale(1.06); }
+
+    .gallery-cell-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(20,15,8,0.9) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+    }
+
+    .gallery-cell:hover .gallery-cell-overlay { opacity: 1; }
+
+    .gallery-cell-title {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      color: var(--sandstone-lt);
+      margin-bottom: 0.25rem;
+    }
+
+    .gallery-cell-cat {
+      font-size: 0.68rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(8,6,3,0.97);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .lightbox.active { display: flex; }
+
+    .lightbox-img {
+      max-width: 88vw;
+      max-height: 80vh;
+      object-fit: contain;
+      border: 1px solid rgba(200,169,122,0.15);
+    }
+
+    .lightbox-caption {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      color: var(--sandstone);
+      text-align: center;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 2rem; right: 2.5rem;
+      font-size: 1.8rem;
+      color: var(--parchment-dk);
+      cursor: pointer;
+      background: none; border: none;
+      line-height: 1;
+      transition: color var(--transition);
+    }
+    .lightbox-close:hover { color: var(--gold); }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      font-size: 2rem;
+      color: var(--sandstone);
+      background: none; border: none;
+      cursor: pointer;
+      padding: 1rem;
+      transition: color var(--transition);
+    }
+    .lightbox-nav:hover { color: var(--gold); }
+    .lightbox-prev { left: 2rem; }
+    .lightbox-next { right: 2rem; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">Angkor Wat<span>Kingdom of Cambodia</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="architecture.html">Architecture</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="visit.html">Plan Your Visit</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero" style="height: 45vh; min-height: 340px;">
+    <div class="page-hero-img" style="background: linear-gradient(160deg, rgba(20,15,8,0.5) 0%, rgba(20,15,8,0.95) 100%), url('assets/images/gallery/g1.jpg') center/cover no-repeat;"></div>
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-content">
+      <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Gallery</div>
+      <span class="section-label">Visual Archive</span>
+      <h1 class="display-title" style="font-size: clamp(2.5rem, 6vw, 5rem);">Gallery</h1>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <section class="section">
+    <div class="container">
+      <div class="reveal" style="margin-bottom: 1.5rem;">
+        <span class="section-label">Curated Photography</span>
+        <h2 class="section-title">Through the Lens</h2>
+      </div>
+
+      <div class="gallery-filters reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="exterior">Exterior</button>
+        <button class="filter-btn" data-filter="carvings">Carvings</button>
+        <button class="filter-btn" data-filter="sunrise">Sunrise</button>
+        <button class="filter-btn" data-filter="details">Details</button>
+      </div>
+
+      <div class="gallery-grid reveal" id="galleryGrid">
+        <!-- Row 1 -->
+        <div class="gallery-cell wide" style="height: 420px;" data-category="exterior" data-title="Main Causeway at Dawn" onclick="openLightbox(this)">
+          <img src="https://i.pinimg.com/736x/c2/97/cf/c297cfc495d82afa3d0b23688ff743d4.jpg" alt="Main Causeway at Dawn" />
+          <div class="gallery-cell-overlay">
+            <div class="gallery-cell-title">Main Causeway at Dawn</div>
+            <div class="gallery-cell-cat">Exterior</div>
+          </div>
+        </div>
+        <div class="gallery-cell tall" style="height: 840px;" data-category="sunrise" data-title="Sunrise Reflection" onclick="openLightbox(this)">
+          <img src="https://i.pinimg.com/736x/a1/c9/0f/a1c90fde6fc95ad2a74404156f4b762c.jpg" alt="Sunrise Reflection" />
+          <div class="gallery-cell-overlay">
+            <div class="gallery-cell-title">Sunrise Reflection</div>
+            <div class="gallery-cell-cat">Sunrise</div>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="gallery-cell" style="height: 420px;" data-category="carvings" data-title="Apsara Carvings" onclick="openLightbox(this)">
+          <img src="https://i.pinimg.com/736x/d0/1f/1e/d01f1e5e760c29a0315274202625ef5b.jpg" alt="Apsara Carvings" />
+          <div class="gallery-cell-overlay">
+            <div class="gallery-cell-title">Apsara Carvings</div>
+            <div class="gallery-cell-cat">Carvings</div>
+          </div>
+        </div>
+        <div class="gallery-cell" style="height: 420px;" data-category="details" data-title="Gallery Columns" onclick="openLightbox(this)">
+          <img src="https://i.pinimg.com/736x/cb/f6/c8/cbf6c8afbb88dbcab7c72f6a527dd878.jpg" alt="Gallery Columns" />
+          <div class="gallery-cell-overlay">
+            <div class="gallery-cell-title">Gallery Columns</div>
+            <div class="gallery-cell-cat">Details</div>
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="gallery-cell" style="height: 350px;" data-category="exterior" data-title="Western Entrance" onclick="openLightbox(this)">
+          <img src="https://i.pinimg.com/736x/90/cb/9a/90cb9a9ec0024182cb937485b82df4ac.jpg" alt="Western Entrance" />
+          <div class="gallery-cell-overlay">
+            <div class="gallery-cell-title">Western Entrance</div>
+            <div class="gallery-cell-cat">Exterior</div>
+          </div>
+        </div>
+        <div class="gallery-cell wide" style="height: 350px;" data-category="sunrise" data-title="Golden Hour over the Towers" onclick="openLightbox(this)">
+          <img src="https://i.pinimg.com/736x/51/10/35/511035c494d69184c2a1262f674f6005.jpg" alt="Golden Hour over the Towers" />
+          <div class="gallery-cell-overlay">
+            <div class="gallery-cell-title">Golden Hour over the Towers</div>
+            <div class="gallery-cell-cat">Sunrise</div>
+          </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="gallery-cell wide" style="height: 380px;" data-category="carvings" data-title="Battle of Kurukshetra Relief" onclick="openLightbox(this)">
+          <img src="https://th.bing.com/th/id/R.bb5848cc3e84bf806de56f669d85b453?rik=tZj1Tqet89z9qA&pid=ImgRaw&r=0" alt="Battle of Kurukshetra Relief" />
+          <div class="gallery-cell-overlay">
+            <div class="gallery-cell-title">Battle of Kurukshetra Relief</div>
+            <div class="gallery-cell-cat">Carvings</div>
+          </div>
+        </div>
+        <div class="gallery-cell" style="height: 380px;" data-category="details" data-title="Nāga Balustrade" onclick="openLightbox(this)">
+          <img src="https://i.pinimg.com/736x/7c/dc/09/7cdc094cdcd91af1903bb22d191dc284.jpg" alt="Nāga Balustrade" />
+          <div class="gallery-cell-overlay">
+            <div class="gallery-cell-title">Nāga Balustrade</div>
+            <div class="gallery-cell-cat">Details</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8592;</button>
+    <img src="" alt="" class="lightbox-img" id="lightboxImg" />
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8594;</button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">Angkor Wat</div>
+          <div class="footer-brand-sub">Siem Reap · Cambodia</div>
+          <p class="footer-desc">The world's largest religious monument, a timeless testament to the genius of the Khmer Empire.</p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="architecture.html">Architecture</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Visit</h4>
+          <ul class="footer-links">
+            <li><a href="visit.html">Plan Your Visit</a></li>
+            <li><a href="visit.html#tickets">Tickets & Passes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item"><strong>Address</strong><span>Krong Siem Reap, Cambodia</span></div>
+          <div class="footer-contact-item"><strong>Phone</strong><span>+855 63 760 036</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Angkor Wat Heritage Site. All rights reserved.</span>
+        <span>A UNESCO World Heritage Site since 1992</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+    document.getElementById('navToggle').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+
+    // Reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal, .reveal-left').forEach(el => observer.observe(el));
+
+    // Filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cells = document.querySelectorAll('.gallery-cell');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        cells.forEach(cell => {
+          cell.style.display = (filter === 'all' || cell.dataset.category === filter) ? '' : 'none';
+        });
+      });
+    });
+
+    // Lightbox
+    const lightboxImages = [];
+    cells.forEach(cell => {
+      const img = cell.querySelector('img');
+      if (img) lightboxImages.push({ src: img.src, title: cell.dataset.title || '' });
+    });
+    let currentIndex = 0;
+
+    function openLightbox(cell) {
+      const img = cell.querySelector('img');
+      currentIndex = lightboxImages.findIndex(i => i.src === img.src);
+      showImage(currentIndex);
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function showImage(idx) {
+      const lb = lightboxImages[idx];
+      document.getElementById('lightboxImg').src = lb.src;
+      document.getElementById('lightboxImg').alt = lb.title;
+      document.getElementById('lightboxCaption').textContent = lb.title;
+    }
+
+    document.getElementById('lightboxClose').addEventListener('click', () => {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    document.getElementById('lightboxPrev').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + lightboxImages.length) % lightboxImages.length;
+      showImage(currentIndex);
+    });
+
+    document.getElementById('lightboxNext').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % lightboxImages.length;
+      showImage(currentIndex);
+    });
+
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('lightbox')) {
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      const lb = document.getElementById('lightbox');
+      if (!lb.classList.contains('active')) return;
+      if (e.key === 'Escape') { lb.classList.remove('active'); document.body.style.overflow = ''; }
+      if (e.key === 'ArrowLeft') { currentIndex = (currentIndex - 1 + lightboxImages.length) % lightboxImages.length; showImage(currentIndex); }
+      if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % lightboxImages.length; showImage(currentIndex); }
+    });
+  </script>
+</body>
+</html>

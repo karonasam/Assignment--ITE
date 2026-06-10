@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Angkor Wat — Temple of the Gods</title>
+  <meta name="description" content="Discover Angkor Wat, the world's largest religious monument and the spiritual heart of Cambodia, built by the Khmer Empire in the 12th century." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="./assets/icons/favicon.ico" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      Angkor Wat
+      <span>Kingdom of Cambodia</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="architecture.html">Architecture</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="visit.html">Plan Your Visit</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" style="background-image: linear-gradient(160deg, rgba(42,32,23,0.55) 0%, rgba(20,15,8,0.88) 70%), url('assets/images/hero.jpg')"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">UNESCO World Heritage Site · Est. 1113 AD</div>
+      <h1 class="display-title">Temple<br>of the Gods</h1>
+      <p class="hero-sub">Rising from the jungles of Cambodia, Angkor Wat stands as humanity's most magnificent act of devotion — a stone universe built to mirror the heavens above.</p>
+      <div class="hero-cta">
+        <a href="visit.html" class="btn btn-filled">Plan Your Visit</a>
+        <a href="history.html" class="btn btn-primary">Discover History</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- INTRO SECTION -->
+  <section class="section" style="background: var(--stone-mid);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;">
+        <div class="reveal-left">
+          <span class="section-label">The Wonder</span>
+          <h2 class="section-title">A Universe Built in Stone</h2>
+          <p class="lead">
+            Commissioned by King Suryavarman II in the early 12th century, Angkor Wat is
+            the world's largest religious monument — a masterwork of classical Khmer
+            architecture dedicated first to Vishnu, then transformed into a Buddhist shrine.
+          </p>
+          <div class="ornament"><div class="ornament-diamond"></div></div>
+          <p style="color: var(--parchment-dk); line-height: 1.85; margin-bottom: 2rem;">
+            Spanning over 400 acres with a moat that mirrors the cosmic ocean, its five
+            towers represent Mount Meru — the sacred axis of the Hindu cosmos. The walls
+            are adorned with the world's longest continuous bas-relief: 800 metres of
+            carved narrative depicting divine battles, celestial dancers, and the
+            mythology of creation.
+          </p>
+          <a href="architecture.html" class="btn btn-primary">Explore Architecture →</a>
+        </div>
+        <div class="reveal">
+          <div style="position: relative;">
+            <img src="https://i.pinimg.com/736x/33/7b/fc/337bfc105edd6e6c2667ebc9d98b4657.jpg" alt="Angkor Wat reflection at sunrise" style="width: 100%; aspect-ratio: 3/4; object-fit: cover; background: var(--stone-lt);" />
+            <div style="position: absolute; bottom: -1.5rem; right: -1.5rem; background: var(--gold); padding: 1.5rem; width: 180px;">
+              <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--stone); line-height:1;">12th</div>
+              <div style="font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--stone-mid);">Century</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAT STRIP -->
+  <div class="stat-strip reveal">
+    <div class="container">
+      <div class="stat-grid">
+        <div class="stat-item">
+          <span class="stat-number">400+</span>
+          <span class="stat-label">Acres of Monument</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">65m</span>
+          <span class="stat-label">Central Tower Height</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">800m</span>
+          <span class="stat-label">Bas-Relief Gallery</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2.5M</span>
+          <span class="stat-label">Annual Visitors</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURE CARDS -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 4rem;" class="reveal">
+        <span class="section-label">What Awaits You</span>
+        <h2 class="section-title">Discover Every Corner</h2>
+      </div>
+      <div class="card-grid">
+        <div class="card reveal">
+          <img src="https://i.pinimg.com/736x/ee/63/8f/ee638f582f9f83a971343cfd5bcb2bb8.jpg" alt="History" class="card-img" style="background: linear-gradient(135deg, var(--stone-lt), var(--stone-mid));" />
+          <div class="card-body">
+            <div class="card-label">Deep Dive</div>
+            <h3 class="card-title">A Thousand Years of History</h3>
+            <p class="card-text">From Suryavarman II's vision to UNESCO protection — trace the full story of the Khmer Empire's greatest achievement.</p>
+            <br>
+            <a href="history.html" class="btn btn-primary" style="font-size: 0.72rem;">Read More →</a>
+          </div>
+        </div>
+        <div class="card reveal" style="transition-delay: 0.15s;">
+          <img src="https://i.pinimg.com/736x/1b/09/c5/1b09c597ff285d8de596ed09286cd3a2.jpg" alt="Architecture" class="card-img" style="background: linear-gradient(135deg, var(--stone-mid), var(--stone));" />
+          <div class="card-body">
+            <div class="card-label">Sacred Design</div>
+            <h3 class="card-title">Masterworks of Khmer Architecture</h3>
+            <p class="card-text">Galleries, towers, bas-reliefs, and moats — understand the cosmic geometry encoded in every stone.</p>
+            <br>
+            <a href="architecture.html" class="btn btn-primary" style="font-size: 0.72rem;">Explore →</a>
+          </div>
+        </div>
+        <div class="card reveal" style="transition-delay: 0.3s;">
+          <div class="card-img" style="background: linear-gradient(135deg, #3A2E1A, #1A1309); display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: var(--font-display); font-size: 4rem; color: rgba(200,169,122,0.3); letter-spacing: 0.1em;">◆</span>
+          </div>
+
+          <div class="card-body">
+           
+          <div class="card-body">
+            <div class="card-label">Sacred Design</div>
+            <div class="card-label">Plan Ahead</div>
+            <h3 class="card-title">Tickets, Tips & Getting There</h3>
+            <p class="card-text">Everything you need for a seamless visit — from sunrise spots to local guides and entry passes.</p>
+            <br>
+            <a href="visit.html" class="btn btn-primary" style="font-size: 0.72rem;">Visit Guide →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE -->
+  <section style="padding: 5rem 0; background: var(--stone-mid);">
+    <div class="container" style="max-width: 860px;">
+      <div class="pull-quote reveal">
+        "Angkor Wat is not just a temple — it is a universe made manifest in laterite
+        and sandstone, a meditation on the divine order of all things, and the most
+        ambitious act of architectural devotion the ancient world has ever known."
+      </div>
+      <p style="font-size: 0.78rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--sandstone); padding-left: 2.5rem;">— Dawn Rooney, Archaeologist &amp; Author</p>
+    </div>
+  </section>
+
+  <!-- GALLERY PREVIEW -->
+  <section class="section">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem;" class="reveal">
+        <div>
+          <span class="section-label">Visual Journey</span>
+          <h2 class="section-title" style="margin-bottom: 0;">Gallery</h2>
+        </div>
+        <a href="gallery.html" class="btn btn-secondary">View All Photos →</a>
+      </div>
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 300px 300px; gap: 3px;" class="reveal">
+        <div style="grid-row: span 2; overflow: hidden; background: var(--stone-lt);">
+          <img src="https://i.pinimg.com/736x/da/16/dc/da16dccb05cfffa5ca1f20c0866ce69d.jpg" alt="Angkor Wat Gallery 1" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+        </div>
+        <div style="overflow: hidden; background: var(--stone-mid);">
+          <img src="https://i.pinimg.com/736x/57/b6/04/57b604c5436d2d248b3be65ba7328c65.jpg" alt="Angkor Wat Gallery 2" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+        </div>
+        <div style="overflow: hidden; background: var(--stone-mid);">
+          <img src="https://i.pinimg.com/736x/14/02/6e/14026eae38670aedcc88416814fcdb53.jpg" alt="Angkor Wat Gallery 3" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+        </div>
+        <div style="grid-column: span 2; overflow: hidden; background: var(--stone-lt);">
+          <img src="https://i.pinimg.com/736x/9f/d0/2e/9fd02e075c2ebb9fda871b6fa6da5f92.jpg" alt="Angkor Wat Panorama" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section style="background: linear-gradient(135deg, var(--stone-mid) 0%, rgba(42,32,23,0.95) 100%); border-top: 1px solid rgba(200,169,122,0.15); border-bottom: 1px solid rgba(200,169,122,0.15); padding: 5rem 0;">
+    <div class="container" style="text-align: center;" class="reveal">
+      <span class="section-label">Ready to Experience It?</span>
+      <h2 class="section-title" style="margin-bottom: 1rem;">Begin Your Journey</h2>
+      <p class="lead" style="margin: 0 auto 3rem; text-align: center;">
+        Plan the perfect visit — from the magical pre-dawn sunrise to the golden light of dusk.
+      </p>
+      <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+        <a href="visit.html" class="btn btn-filled">Plan Your Visit</a>
+        <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">Angkor Wat</div>
+          <div class="footer-brand-sub">Siem Reap · Cambodia</div>
+          <p class="footer-desc">The world's largest religious monument, a timeless testament to the genius of the Khmer Empire, standing for nearly nine centuries at the heart of Southeast Asia.</p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="architecture.html">Architecture</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Visit</h4>
+          <ul class="footer-links">
+            <li><a href="visit.html">Plan Your Visit</a></li>
+            <li><a href="visit.html#tickets">Tickets & Passes</a></li>
+            <li><a href="visit.html#hours">Opening Hours</a></li>
+            <li><a href="visit.html#tips">Visitor Tips</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item"><strong>Address</strong><span>Krong Siem Reap, Cambodia</span></div>
+          <div class="footer-contact-item"><strong>Phone</strong><span>+855 63 760 036</span></div>
+          <div class="footer-contact-item"><strong>Email</strong><span>info@angkorwat.org</span></div>
+          <div class="footer-contact-item"><strong>Hours</strong><span>5:00 AM – 6:00 PM Daily</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Angkor Wat Heritage Site. All rights reserved.</span>
+        <span>A UNESCO World Heritage Site since 1992</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Mobile nav
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal, .reveal-left');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
